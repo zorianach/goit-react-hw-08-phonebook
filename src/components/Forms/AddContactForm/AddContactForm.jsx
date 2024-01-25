@@ -7,13 +7,14 @@ import { paramsForNotify } from "components/paramsForNotify";
 import { addContactThunk } from "../../../redux/contactsSlice/thunks";
 import { selectAllContacts } from "../../../redux/selectors";
 import { Form, Label, Input, Button} from "./AddContactForm.styled";
+import { nanoid } from "@reduxjs/toolkit";
 
 const AddContactForm = ()=> {
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
 
   const {contacts} = useSelector(selectAllContacts);
-  console.log('contacts', contacts)
+  // console.log('contacts', contacts)
   // const token 
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ const AddContactForm = ()=> {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const newContact = { "name": name, "number": number };
+    const newContact = {name, number };
     const normalizedName = name.toLowerCase();
    const isAdded = contacts.find(el => el.name.toLowerCase() === normalizedName) 
 

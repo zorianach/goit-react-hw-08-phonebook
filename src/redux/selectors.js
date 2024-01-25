@@ -9,8 +9,7 @@ export const selectIsAuth = (state) => {
   return state.auth.token
 }
 export const selectProfile = (state) => {
-  console.log('selectProfile', state.auth.profile)
-
+  // console.log('selectProfile', state.auth.profile)
   return state.auth.profile}
 
 export const selectAllContacts = (state) => state.contacts;

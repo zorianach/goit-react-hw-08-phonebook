@@ -23,9 +23,8 @@ const ContactList = () => {
     return ( <ContactListStyle>
             {contacts.map(({name, number, id}) => {
                 return (
-                <>
                 <ContactItem key={id} >
-                    <Line>{name}:    <span>{number}</span></Line>
+                    <Line >{name}:    <span>{number}</span></Line>
                     <Buttons>
                     <DeleteButton title="Delete contact" type="button" onClick={() => onDeleteContact(id, name)}>
                         <RiDeleteBin5Line/>
@@ -35,7 +34,6 @@ const ContactList = () => {
                     </AddFavouriteButton> */}
                     </Buttons>
                 </ContactItem>
-                </>
             )})}
         </ContactListStyle>
     );
