@@ -10,6 +10,7 @@ import {PrivateRoute} from "../guards/PrivateRoute";
 // import ContactsPage from "pages/ContactsPage";
 import { RegistrationPage } from "pages/RegistrationPage";
 import { LoginPage } from "pages/LoginPage";
+import { useAuth } from "hooks/useAuth";
 
 // const Layout = lazy (()=> import ('./Layout/Layout'));
 // const HomePage = lazy(() => import('pages/HomePage/HomePage/HomePage'));
@@ -19,7 +20,7 @@ const ContactsPage = lazy(()=> import ('pages/ContactsPage'));
 
 export const App = () => {
   const profile = useSelector(selectProfile)
-  // const { isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();
 
 	const dispatch = useDispatch();
 
@@ -27,9 +28,9 @@ export const App = () => {
 		!profile && dispatch(refreshThunk())
 	}, [dispatch, profile])
 
-  return (
-   
-     <>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Suspense fallback={<>loading...</>}>
         <Routes>
         <Route path="/" element={<Layout />}>
@@ -49,9 +50,7 @@ export const App = () => {
           <Route path="*" element={<HomePage />}/>
         </Route>
         </Routes>
-      </Suspense>
-    </>
-    
+      </Suspense>    
   );
 };
 

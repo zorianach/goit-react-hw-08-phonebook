@@ -1,4 +1,3 @@
-import { Notify } from 'notiflix';
 import { Form, Input, Label, Button, LoggedLink, Title } from './LoginForm.styled';
 import { useDispatch } from 'react-redux';
 import { Container } from '../FormRegistration/FormRegistration.styled';
@@ -9,19 +8,11 @@ export const LoginForm = ({login}) => {
     const handleSubmit = e => {
     e.preventDefault();
     const {email, password} = e.target.elements;
+    dispatch(
         login({
         email: email.value,
         password: password.value,
-        })
-    
-//     .then(originalPromiseResult => {
-//         Notify.success(`${originalPromiseResult.user.name} welcome back!`);
-//       })
-//       .catch(() => {
-//         Notify.failure('Incorrect login or password');
-//       });
-// ;
-    // form.reset();
+        }))
     };
 
   return (
