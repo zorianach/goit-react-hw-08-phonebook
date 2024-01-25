@@ -7,7 +7,7 @@ import { paramsForNotify } from "components/paramsForNotify";
 import { addContactThunk } from "../../../redux/contactsSlice/thunks";
 import { selectAllContacts } from "../../../redux/selectors";
 import { Form, Label, Input, Button} from "./AddContactForm.styled";
-import { nanoid } from "@reduxjs/toolkit";
+// import { nanoid } from "@reduxjs/toolkit";
 
 const AddContactForm = ()=> {
   const [name, setName] = useState('')
